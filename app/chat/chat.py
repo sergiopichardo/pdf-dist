@@ -1,6 +1,7 @@
 from app.chat.models import ChatArgs
+from app.chat.vector_stores.pinecone import build_retriever 
 
-
+# the build_chat method fulfills the requirement of scoping document retrieval to a particular PDF
 def build_chat(chat_args: ChatArgs):
     """
     :param chat_args: ChatArgs object containing
@@ -12,5 +13,7 @@ def build_chat(chat_args: ChatArgs):
 
         chain = build_chat(chat_args)
     """
+    retriever = build_retriever(chat_args) 
 
-    pass
+
+    
