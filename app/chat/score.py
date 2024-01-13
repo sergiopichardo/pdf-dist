@@ -16,8 +16,7 @@ def score_conversation(
 
     score_conversation('abc123', 0.75, 'llm_info', 'retriever_info', 'memory_info')
     """
-
-    pass
+    
 
 
 def get_scores():
