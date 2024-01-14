@@ -2,12 +2,15 @@
 import random
 from langchain.chat_models import ChatOpenAI
 
+
+from app.chat.tracing.langfuse import langfuse
 from app.chat.score import random_component_by_score
 from app.chat.models import ChatArgs
 from app.chat.vector_stores import retriever_map
 from app.chat.llms import llm_map
 from app.chat.memories import memory_map
 from app.chat.chains.retrieval import StreamingConversationalRetrievalChain
+
 from app.web.api import (
     set_conversation_components,
     get_conversation_components
@@ -67,5 +70,6 @@ def build_chat(chat_args: ChatArgs):
         llm=llm, 
         memory=memory, 
         condense_question_llm=condense_question_llm,
-        retriever=retriever
+        retriever=retriever,
+        metadata=chat_args.metadata
     )
